@@ -2,9 +2,9 @@ var mysql = require("mysql");
 
 var config = {
     "host": "localhost",
-    "user": "suchi",
-    "password": "suchi",
-    "database": "suchi"
+     "user": "root",
+    "password": "Welcome@123",
+    "database": "project"
 };
 
 module.exports = {
