@@ -6,14 +6,15 @@ module.exports =
     {    
         if(inputData.UserType==1)
             {
-                $location.path("/adminHome");
+                // Call For Admin Service
             }
             else if(inputData.UserType==2)
             {
-                $location.path("/studentHome");
+                // Call For Student Service
             }
             else if(inputData.UserType==3)
             {
+                // Call For Mentor Service
                 mentor.validateMentor(callback, inputData);
                          
             }

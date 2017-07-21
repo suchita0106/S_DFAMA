@@ -10,6 +10,7 @@ var config = {
 
 module.exports =
 {
+    // Login Validator
     "validateMentor": function(callback, inputData)
         {
             var connection = mysql.createConnection(config);
@@ -31,6 +32,7 @@ module.exports =
             });
         },
 
+        // If Login Successful get Mentor Details
     "fetchMentor": function(callback, inputData)
         {
             var connection = mysql.createConnection(config);
