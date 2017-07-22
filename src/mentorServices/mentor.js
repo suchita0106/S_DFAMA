@@ -2,9 +2,9 @@ var mysql = require("mysql");
 
 var config = {
     "host": "localhost",
-     "user": "messi",
-    "password": "messi",
-    "database": "messi"
+     "user": "dev",
+    "password": "dev",
+    "database": "project"
 };
 
 
@@ -24,8 +24,6 @@ module.exports =
                 {
                     console.log(results);
                 } 
-                
-
                 // TASK COMPLETED
                 callback(err, results)
                 connection.end();
