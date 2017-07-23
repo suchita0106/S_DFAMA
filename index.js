@@ -8,6 +8,8 @@ app.use(cors());
 // Custom Services
 var loginModule = require('./src/login');
 var mentor = require('./src/mentorServices/mentorService');
+var adminModule = require('./src/adminServices/admin');
+
 
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -17,6 +19,10 @@ app.use("/", loginModule);
 
 // Mentor Calls
 app.use("/mentor", mentor);
+
+
+// admin Calls
+app.use("/admin", adminModule);
 
 app.listen(3010, function() {
     console.log("Server started");
