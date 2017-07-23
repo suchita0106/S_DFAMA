@@ -20,7 +20,7 @@ module.exports = {
             if(!err){
                 console.log(results);
             }
-            // TASK COMPLETED
+            // TASK  COMPLETED
             callback(err, results)
             connection.end();
         });

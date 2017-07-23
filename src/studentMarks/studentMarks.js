@@ -7,6 +7,6 @@ router.post("/",function(req,res){
     studentMarksModule.readMarks(function(err,results){
         res.json(results);
     },inputData);
-})
+});
 
 module.exports = router;

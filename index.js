@@ -19,7 +19,7 @@ app.use("/", loginModule);
 // Mentor Calls
 app.use("/mentor", mentor);
 
-// Student call
+// Student calls
 app.use("/student", student);
 app.use("/studentMarks",studentMarks);
 
