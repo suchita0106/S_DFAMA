@@ -1,30 +1,35 @@
 var mysql = require("mysql");
 
 var config = {
+<<<<<<< HEAD
     "host": "127.0.0.1",
     //"host": "localhost",
-     "user": "dev",
+    "user": "dev",
     "password": "dev",
     "database": "project"
+=======
+    "host": "localhost",
+     "user": "suchi",
+    "password": "suchi",
+    "database": "suchi"
+>>>>>>> 4fadb8cedebb7ab7b7aff181f6100fa1de1ab413
 };
 
 
 module.exports =
-{
-    // Login Validator
-    "validateMentor": function(callback, inputData)
-        {
+    {
+        // Login Validator
+        "validateMentor": function (callback, inputData) {
             var connection = mysql.createConnection(config);
             connection.connect();
 
             var sql = "SELECT * FROM mentor where mentorUsername=? && mentorPassword=?";
             var param = [inputData.UserId, inputData.UserPwd];
-                
-            connection.query(sql, param, function(err, results) {
-               if(!err)
-                {
+
+            connection.query(sql, param, function (err, results) {
+                if (!err) {
                     console.log(results);
-                } 
+                }
                 // TASK COMPLETED
                 callback(err, results)
                 connection.end();
@@ -32,19 +37,17 @@ module.exports =
         },
 
         // If Login Successful get Mentor Details
-    "fetchMentor": function(callback, inputData)
-        {
+        "fetchMentor": function (callback, inputData) {
             var connection = mysql.createConnection(config);
             connection.connect();
 
             var sql = "SELECT * FROM mentordetails where mentorId=?";
             var param = [inputData.mentorId];
-                
-            connection.query(sql, param, function(err, results) {
-               if(!err)
-                {
+
+            connection.query(sql, param, function (err, results) {
+                if (!err) {
                     console.log(results);
-                } 
+                }
 
                 // TASK COMPLETED
                 callback(err, results)
@@ -52,8 +55,7 @@ module.exports =
             });
         },
 
-    "setAgenda": function(callback, inputData)
-        {
+        "setAgenda": function (callback, inputData) {
             var connection = mysql.createConnection(config);
             connection.connect();
 
@@ -61,10 +63,8 @@ module.exports =
             // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
             var param = [inputData.mentorId, inputData.agendaText, inputData.agendaDate];
 
-            connection.query(sql, param, function(err, results)
-            {
-                if(!err)
-                {
+            connection.query(sql, param, function (err, results) {
+                if (!err) {
                     console.log(results);
                 }
 
@@ -74,8 +74,7 @@ module.exports =
             });
         },
 
-    "fetchAgenda": function(callback, inputData)
-        {
+        "fetchAgenda": function (callback, inputData) {
             var connection = mysql.createConnection(config);
             connection.connect();
 
@@ -83,11 +82,9 @@ module.exports =
             // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
             var param = [inputData.mentorId];
 
-            connection.query(sql, param, function(err, results)
-            {
-                if(!err)
-                {
-                    console.log(results);    
+            connection.query(sql, param, function (err, results) {
+                if (!err) {
+                    console.log(results);
                 }
 
                 callback(err, results)
@@ -96,8 +93,7 @@ module.exports =
 
         },
 
-    "fetchTeamDetails": function(callback, inputData)
-        {
+        "fetchTeamDetails": function (callback, inputData) {
             var connection = mysql.createConnection(config);
             connection.connect();
 
@@ -105,15 +101,13 @@ module.exports =
             // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
             var param = [inputData.mentorId];
 
-            connection.query(sql, param, function(err, results)
-            {
-                if(!err)
-                {
-                    console.log(results);    
+            connection.query(sql, param, function (err, results) {
+                if (!err) {
+                    console.log(results);
                 }
 
                 callback(err, results)
                 connection.end();
             });
         }
-}
+    }
