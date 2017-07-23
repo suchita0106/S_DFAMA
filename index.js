@@ -18,6 +18,9 @@ var uploadModule = require("./src/common/uploadModule");
 
 // Fetch Student Marks
 var studentMarks = require('./src/studentMarks/studentMarks');
+// Insert Student Feedback
+var studentFeedback = require('./src/studentFeedback/studentFeedback');
+
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-
@@ -34,6 +37,7 @@ app.use("/admin", adminModule);
 // Student calls
 app.use("/student", student);
 app.use("/studentMarks", studentMarks);
+app.use("/studentFeedback",studentFeedback);
 
 
 app.use("/upload", uploadModule);
