@@ -9,12 +9,12 @@ app.use(cors());
 var loginModule = require('./src/login');
 var mentor = require('./src/mentorServices/mentorService');
 var student = require('./src/studentServices/studentServices');
-<<<<<<< HEAD
+
+//File Upload to Server
 var uploadModule = require("./src/common/uploadModule");
 
-=======
+// Fetch Student Marks
 var studentMarks = require('./src/studentMarks/studentMarks');
->>>>>>> 6dfa1606011a3aec89ee5e02c15e17fd5a075ff6
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-
