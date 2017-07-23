@@ -10,4 +10,13 @@ router.post("/",function(req,res)
     },inputData);
 });
 
+router.post("/agendaInit",function(req,res)
+{
+    var inputData = req.body;
+    student.fetchAgenda(function(err,results){
+        res.json(results);
+    },inputData);
+});
+
+
 module.exports = router;
