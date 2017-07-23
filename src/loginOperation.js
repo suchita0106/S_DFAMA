@@ -1,5 +1,6 @@
 var mentor = require("./mentorServices/mentor");
 var admin = require("./adminServices/adminService");
+var student = require("./studentServices/student");
 
 module.exports = 
 {
@@ -10,9 +11,10 @@ module.exports =
                 // Call For Admin Service
                  admin.validateAdmin(callback, inputData);
             }
-            else if(inputData.UserType==2)
+            else if(inputData.UserType==2) 
             {
                 // Call For Student Service
+                 student.validateStudent(callback, inputData);
             }
             else if(inputData.UserType==3)
             {

@@ -49,5 +49,70 @@ module.exports =
                 callback(err, results)
                 connection.end();
             });
+        },
+
+    "setAgenda": function(callback, inputData)
+        {
+            var connection = mysql.createConnection(config);
+            connection.connect();
+
+            var sql = "insert into agenda values(?, ?, ?, now())";
+            // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
+            var param = [inputData.mentorId, inputData.agendaText, inputData.agendaDate];
+
+            connection.query(sql, param, function(err, results)
+            {
+                if(!err)
+                {
+                    console.log(results);
+                }
+
+
+                callback(err, results)
+                connection.end();
+            });
+        },
+
+    "fetchAgenda": function(callback, inputData)
+        {
+            var connection = mysql.createConnection(config);
+            connection.connect();
+
+            var sql = "select agenda_Details, scheduleTime from agenda where mentorId=?";
+            // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
+            var param = [inputData.mentorId];
+
+            connection.query(sql, param, function(err, results)
+            {
+                if(!err)
+                {
+                    console.log(results);    
+                }
+
+                callback(err, results)
+                connection.end();
+            });
+
+        },
+
+    "fetchTeamDetails": function(callback, inputData)
+        {
+            var connection = mysql.createConnection(config);
+            connection.connect();
+
+            var sql = "select rank, name, yearofpassing, qualification, groupName, teamId from StudentDetails where mentorId=?";
+            // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
+            var param = [inputData.mentorId];
+
+            connection.query(sql, param, function(err, results)
+            {
+                if(!err)
+                {
+                    console.log(results);    
+                }
+
+                callback(err, results)
+                connection.end();
+            });
         }
 }
