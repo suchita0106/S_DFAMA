@@ -11,12 +11,12 @@ var config = {
 module.exports =
 {
     // Login Validator
-    "validateMentor": function(callback, inputData)
+    "validateStudent": function(callback, inputData)
         {
             var connection = mysql.createConnection(config);
             connection.connect();
 
-            var sql = "SELECT * FROM mentor where mentorUsername=? && mentorPassword=?";
+            var sql = "SELECT * FROM student where studentUsername=? && studentPassword=?";
             var param = [inputData.UserId, inputData.UserPwd];
                 
             connection.query(sql, param, function(err, results) {
@@ -33,13 +33,13 @@ module.exports =
         },
 
         // If Login Successful get Mentor Details
-    "fetchMentor": function(callback, inputData)
+    "fetchStudent": function(callback, inputData)
         {
             var connection = mysql.createConnection(config);
             connection.connect();
 
-            var sql = "SELECT * FROM mentordetails where mentorId=?";
-            var param = [inputData.mentorId];
+            var sql = "SELECT * FROM studentdetails where studentId=?";
+            var param = [inputData.studentId];
                 
             connection.query(sql, param, function(err, results) {
                if(!err)
