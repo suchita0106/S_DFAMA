@@ -9,6 +9,7 @@ app.use(cors());
 var loginModule = require('./src/login');
 var mentor = require('./src/mentorServices/mentorService');
 var student = require('./src/studentServices/studentServices');
+var uploadModule = require("./src/common/uploadModule");
 
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -21,6 +22,9 @@ app.use("/mentor", mentor);
 
 // Student call
 app.use("/student", student);
+
+
+app.use("/upload", uploadModule);
 
 app.listen(3002, function() {
     console.log("Server started");
