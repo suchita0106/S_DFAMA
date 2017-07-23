@@ -31,7 +31,18 @@ router.post("/agendaInit", function(req, res)
     mentor.fetchAgenda(function(err, results)
     {
         res.json(results); 
-               
+
+    }, inputData);
+});
+
+router.post("/team", function(req, res)
+{
+    var inputData = req.body;
+
+    mentor.fetchTeamDetails(function(err, results)
+    {
+        res.json(results);
+
     }, inputData);
 });
 

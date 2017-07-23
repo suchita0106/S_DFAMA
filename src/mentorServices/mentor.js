@@ -94,5 +94,26 @@ module.exports =
                 connection.end();
             });
 
+        },
+
+    "fetchTeamDetails": function(callback, inputData)
+        {
+            var connection = mysql.createConnection(config);
+            connection.connect();
+
+            var sql = "select rank, name, yearofpassing, qualification, groupName, teamId from StudentDetails where mentorId=?";
+            // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
+            var param = [inputData.mentorId];
+
+            connection.query(sql, param, function(err, results)
+            {
+                if(!err)
+                {
+                    console.log(results);    
+                }
+
+                callback(err, results)
+                connection.end();
+            });
         }
 }
