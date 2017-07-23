@@ -27,11 +27,11 @@ app.use("/mentor", mentor);
 
 // Student calls
 app.use("/student", student);
-app.use("/studentMarks",studentMarks);
+app.use("/studentMarks", studentMarks);
 
 
 app.use("/upload", uploadModule);
 
-app.listen(3002, function() {
+app.listen(3002, function () {
     console.log("Server started");
 });
