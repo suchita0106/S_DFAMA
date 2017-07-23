@@ -9,7 +9,7 @@ app.use(cors());
 var loginModule = require('./src/login');
 var mentor = require('./src/mentorServices/mentorService');
 var student = require('./src/studentServices/studentServices');
-
+var studentMarks = require('./src/studentMarks/studentMarks');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-
@@ -21,6 +21,7 @@ app.use("/mentor", mentor);
 
 // Student call
 app.use("/student", student);
+app.use("/studentMarks",studentMarks);
 
 app.listen(3002, function() {
     console.log("Server started");
