@@ -1,11 +1,7 @@
 var mysql = require("mysql");
 
 var config = {
-<<<<<<< HEAD
-    "host": "localhost",
-=======
     "host": "127.0.0.1",
->>>>>>> 957e59c1010f75b2bad2e961d6d17ff93aa84527
     //"host": "localhost",
     "user": "dev",
     "password": "dev",

@@ -42,10 +42,6 @@ app.use("/studentFeedback",studentFeedback);
 
 app.use("/upload", uploadModule);
 
-<<<<<<< HEAD
-app.listen(3010, function () {
-=======
 app.listen(3010, function() {
->>>>>>> 957e59c1010f75b2bad2e961d6d17ff93aa84527
     console.log("Server started");
 });
