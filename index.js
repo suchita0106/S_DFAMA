@@ -33,10 +33,6 @@ app.use("/studentMarks", studentMarks);
 
 app.use("/upload", uploadModule);
 
-<<<<<<< HEAD
-app.listen(3002, function () {
-=======
-app.listen(3010, function() {
->>>>>>> 4fadb8cedebb7ab7b7aff181f6100fa1de1ab413
+app.listen(3010, function () {
     console.log("Server started");
 });
