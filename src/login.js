@@ -6,6 +6,7 @@ var loginModule = require('./loginOperation');
 
 
 var app = express();
+var emptymessage ={};
 
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-
 router.use(expressValidator([]));
@@ -31,7 +32,7 @@ app.use(expressValidator);  //required for Express-Validator
     }
     else{
         console.log("invalid data");
-        
+        res.json(emptymessage);
     }
 
     });
