@@ -36,7 +36,7 @@ module.exports =
             connection.connect();
 
             var sql = "update mentordetails set mentorname = ?, yearOfExperience = ?, mentorId = ?, contactNo = ?, company = ?, areaOfExpertise = ?, batch = ?, email = ?, teamId = ? where mentorId = ?";
-            var param = [inputData.mentorname, inputData.yearOfExperience, inputData.mentorId, inputData.contactNo, inputData.company, inputData.areaOfExpertise, inputData.batch, inputData.email, inputData.teamId, inputData.mentorId];
+            var param = [inputData.mentorName, inputData.yearOfExperience, inputData.mentorId, inputData.contactNo, inputData.company, inputData.areaOfExpertise, inputData.batch, inputData.email, inputData.teamId, inputData.mentorId];
                 
             connection.query(sql, param, function(err, results) {
                if(!err)
