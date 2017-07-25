@@ -44,4 +44,12 @@ router.post("/imarksdetails",function(req,res){
     
 });
 
+router.post("/mentorUpdate",function(req,res){
+    var inputData = req.body;
+    adminModule.updateMentor(function(err,results){
+       res.json(results);
+    },inputData);
+});
+
+
 module.exports = router;

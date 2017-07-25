@@ -30,6 +30,26 @@ module.exports =
             });
         },
 
+        "updateMentor": function(callback, inputData)
+        {
+            var connection = mysql.createConnection(config);
+            connection.connect();
+
+            var sql = "update mentordetails set mentorname = ?, yearOfExperience = ?, mentorId = ?, contactNo = ?, company = ?, areaOfExpertise = ?, batch = ?, email = ?, teamId = ? where mentorId = ?";
+            var param = [inputData.mentorname, inputData.yearOfExperience, inputData.mentorId, inputData.contactNo, inputData.company, inputData.areaOfExpertise, inputData.batch, inputData.email, inputData.teamId, inputData.mentorId];
+                
+            connection.query(sql, param, function(err, results) {
+               if(!err)
+                {
+                    console.log(results);
+                } 
+                // TASK COMPLETED
+                callback(err, results)
+                connection.end();
+            });
+        },
+
+
         "fetchAllMentorDetails":function(callback){
             var connection = mysql.createConnection(config);
             connection.connect();
