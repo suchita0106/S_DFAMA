@@ -14,7 +14,7 @@ var adminModule = require('./src/adminServices/admin');
 var student = require('./src/studentServices/studentServices');
 
 //File Upload to Server
-var uploadModule = require("./src/common/uploadModule");
+//var uploadModule = require("./src/common/uploadModule");
 
 // Fetch Student Marks
 var studentMarks = require('./src/studentMarks/studentMarks');
@@ -40,12 +40,8 @@ app.use("/studentMarks", studentMarks);
 app.use("/studentFeedback",studentFeedback);
 
 
-app.use("/upload", uploadModule);
+//app.use("/upload", uploadModule);
 
-<<<<<<< HEAD
 app.listen(3010, function () {
-=======
-app.listen(3010, function() {
->>>>>>> 957e59c1010f75b2bad2e961d6d17ff93aa84527
     console.log("Server started");
 });
