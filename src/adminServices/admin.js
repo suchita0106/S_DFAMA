@@ -22,4 +22,12 @@ router.post("/imarksdetails",function(req,res){
     },inputData);
 });
 
+router.post("/mentorUpdate",function(req,res){
+    var inputData = req.body;
+    adminModule.updateMentor(function(err,results){
+       res.json(results);
+    },inputData);
+});
+
+
 module.exports = router;
