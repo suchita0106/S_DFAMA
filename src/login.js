@@ -4,7 +4,7 @@ var router = express.Router();
 var expressValidator= require('express-validator'); // //Declare Express-Validator
 var loginModule = require('./loginOperation');
 
-//var assert = require('assert');
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-
