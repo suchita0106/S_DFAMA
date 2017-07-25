@@ -103,6 +103,33 @@ var sql = "select studentdetails.studentId , studentdetails.name ,  oopcpp_Lab a
                 connection.end();
             });
 
+    },
+
+    // "fetchStudentDetails":function(callback,inputData){
+    //         var connection = mysql.createConnection(config);
+    //         connection.connect();
+
+    //         var sql = "SELECT * FROM student where studentId = ?";
+
+    //          var param = [inputData.stuId];
+                
+    //         connection.query(sql, param, function(err, results) {
+    //            if(!err)
+    //             {
+    //                 console.log(results);
+    //             } 
+    //             // TASK COMPLETED
+    //             callback(err, results)
+    //             connection.end();
+    //         });
+
+    // },
+
+    "changeTheStudentPwd" : function(callback, inputData){
+              var resObj = this.fetchStudentDetails(callback,inputData);
+              connection.connect();
+
+            //  if(res)
     }
 
 };

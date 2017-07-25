@@ -22,4 +22,14 @@ router.post("/imarksdetails",function(req,res){
     },inputData);
 });
 
+router.post("/changePwd",function(req,res){
+    var inputData = req.body;
+    adminModule.changeTheStudentPwd(function(err,results){
+       res.json(results);
+    },inputData);
+});
+
+
+
+
 module.exports = router;
