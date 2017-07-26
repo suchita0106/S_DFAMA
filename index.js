@@ -10,8 +10,8 @@ app.use(cors());
 var loginModule = require('./src/login');
 var mentor = require('./src/mentorServices/mentorService');
 var adminModule = require('./src/adminServices/admin');
-
 var student = require('./src/studentServices/studentServices');
+var forum = require('./src/forumServices/forum');
 
 //File Upload to Server
 //var uploadModule = require("./src/common/uploadModule");
@@ -30,6 +30,8 @@ app.use("/", loginModule);
 // Mentor Calls
 app.use("/mentor", mentor);
 
+//forum calls
+app.use("/forum",forum);
 
 // admin Calls
 app.use("/admin", adminModule);
