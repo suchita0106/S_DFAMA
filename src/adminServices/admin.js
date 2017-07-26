@@ -44,23 +44,14 @@ router.post("/imarksdetails",function(req,res){
     
 });
 
-<<<<<<< HEAD
-router.post("/changePwd",function(req,res){
-    var inputData = req.body;
-    adminModule.changeTheStudentPwd(function(err,results){
-=======
-router.post("/mentorUpdate",function(req,res){
-    var inputData = req.body;
-    adminModule.updateMentor(function(err,results){
->>>>>>> 7243be5de8650a69d85868f8d1f8f9e2c2c74308
-       res.json(results);
-    },inputData);
-});
+// router.post("/changePwd",function(req,res){
+//     var inputData = req.body;
+//     adminModule.changeTheStudentPwd(function(err,results){
+// router.post("/mentorUpdate",function(req,res){
+//     var inputData = req.body;
+//     adminModule.updateMentor(function(err,results){
+//        res.json(results);
+//     },inputData);
+// });
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 7243be5de8650a69d85868f8d1f8f9e2c2c74308
 module.exports = router;
