@@ -93,4 +93,13 @@ router.post("/team", function (req, res) {
    
 });
 
+router.get("/calcTeamPerformance",function(req,res)
+{
+    mentor.calculateTheTeamPerformance(function(err,results){
+        res.json(results);
+    });
+});
+
+
+
 module.exports = router;

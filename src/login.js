@@ -16,9 +16,9 @@ app.use(expressValidator);  //required for Express-Validator
 
     router.post('/',function (req, res) {
     var inputData = req.body;
-    req.checkBody('UserId',"user id is required").notEmpty().isAlpha();  //Validate userId
+    // req.checkBody('UserId',"user id is required").notEmpty().isAlpha();  //Validate userId
     req.checkBody('UserPwd',"Password  is required").notEmpty().isAlphanumeric(); //Validate Password
-    req.checkBody('UserType',"Type is not valid").notEmpty().isNumeric(); //Validate Type
+    // req.checkBody('UserType',"Type is not valid").notEmpty().isNumeric(); //Validate Type
 
     var errors = req.validationErrors();
         
