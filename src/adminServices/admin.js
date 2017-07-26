@@ -44,17 +44,6 @@ router.post("/imarksdetails",function(req,res){
     
 });
 
-<<<<<<< HEAD
-// router.post("/changePwd",function(req,res){
-//     var inputData = req.body;
-//     adminModule.changeTheStudentPwd(function(err,results){
-// router.post("/mentorUpdate",function(req,res){
-//     var inputData = req.body;
-//     adminModule.updateMentor(function(err,results){
-//        res.json(results);
-//     },inputData);
-// });
-=======
 router.post("/changePwd",function(req,res){
     var inputData = req.body;
     adminModule.changeTheStudentPwd(function(err,results){
@@ -68,6 +57,5 @@ router.post("/mentorUpdate",function(req,res){
     });
 });
 
->>>>>>> e7f9550d6cf7c1637c200f405084dbaf625bb370
 
 module.exports = router;
