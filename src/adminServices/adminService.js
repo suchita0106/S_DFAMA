@@ -146,10 +146,23 @@ var sql = "select studentdetails.studentId , studentdetails.name ,  oopcpp_Lab a
     // },
 
     "changeTheStudentPwd" : function(callback, inputData){
-              var resObj = this.fetchStudentDetails(callback,inputData);
-              connection.connect();
+               var connection = mysql.createConnection(config);
+             connection.connect();
 
-            //  if(res)
+             var sql = "update student set studentPassword=? where studentId=?";
+
+              var param = [inputData.newPwd,inputData.stuId];
+                
+             connection.query(sql, param, function(err, results) {
+                if(!err)
+                 {
+                     console.log(results);
+                 } 
+                 // TASK COMPLETED
+                 callback(err, results)
+                 connection.end();
+             });
+
     }
 
 };
