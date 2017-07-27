@@ -46,7 +46,7 @@ module.exports = {
         var connection = mysql.createConnection(config);
         connection.connect();
 
-        var sql = "select * from Questions where answerStatus=1;";
+        var sql = "select Questions.questionId as QID,Answers.questionId as QAID, Answers.answerText as Ans from Answers,Questions where Questions.answerStatus=1;";
         
         connection.query(sql,function(err,results){
             if(!err){
@@ -58,13 +58,13 @@ module.exports = {
         });
     },
 
-    "readComments" : function(callback){
+    "getComments" : function(callback,inputData){
         var connection = mysql.createConnection(config);
         connection.connect();
-
-        var sql = "select * from Comments";
+        var param = [inputData.ansId];
+        var sql = "select * from Comments where answerId=?";
         
-        connection.query(sql,function(err,results){
+        connection.query(sql,param,function(err,results){
             if(!err){
                 console.log(results);
             }
@@ -74,13 +74,13 @@ module.exports = {
         });
     },
 
-    "readAnswers" : function(callback){
+    "getAnswers" : function(callback,inputData){
         var connection = mysql.createConnection(config);
         connection.connect();
-
-        var sql = "select * from Answers;";
         
-        connection.query(sql,function(err,results){
+        var sql = "select * from Answers where questionId=?;";
+        var param = [inputData.quesId];
+        connection.query(sql,param,function(err,results){
             if(!err){
                 console.log(results);
             }

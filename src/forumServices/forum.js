@@ -18,15 +18,17 @@ router.get("/forumInitB",function(req,res){
         res.json(results);
     });
 });
-router.get("/forumInitC",function(req,res){
-    forumModule.readComments(function(err,results){
+router.post("/getAnswers",function(req,res){
+    var inputData = req.body;
+    forumModule.getAnswers(function(err,results){
         res.json(results);
-    });
+    }, inputData);
 });
-router.get("/forumInitD",function(req,res){
-    forumModule.readAnswers(function(err,results){
+router.post("/getComments",function(req,res){
+    var inputData = req.body;
+    forumModule.getComments(function(err,results){
         res.json(results);
-    });
+    },inputData);
 });
 
 
