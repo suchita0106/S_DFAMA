@@ -14,7 +14,7 @@ app.use(expressValidator);  //required for Express-Validator
 
 router.post("/", function (req, res) {
     var inputData = req.body;
-     req.checkBody('mentorId',"mentor id required").notEmpty().isNumeric();  //Validate subjectName
+     req.checkBody('mentorId',"mentor id required").notEmpty().isAlphanumeric();  //Validate subjectName
 
     var errors = req.validationErrors();
     if(!errors){

@@ -53,7 +53,7 @@ module.exports =
             var connection = mysql.createConnection(config);
             connection.connect();
 
-            var sql = "select agenda_Details, scheduleTime from agenda where mentorId = (select mentorId from studentdetails where studentId = ?)";
+            var sql = "select agenda_Details, scheduleTime from agenda where mentorId = (select distinct mentorId from studentdetails where studentId = ?)";
             // var sql = ADD YOUR QUERRY HERE AND COMMENT THE ABOVE
             var param = [inputData.studentId];
 
