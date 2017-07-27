@@ -44,30 +44,29 @@ router.post("/imarksdetails",function(req,res){
     
 });
 
-<<<<<<< HEAD
-// router.post("/changePwd",function(req,res){
-//     var inputData = req.body;
-//     adminModule.changeTheStudentPwd(function(err,results){
-// router.post("/mentorUpdate",function(req,res){
-//     var inputData = req.body;
-//     adminModule.updateMentor(function(err,results){
-//        res.json(results);
-//     },inputData);
-// });
-=======
-router.post("/changePwd",function(req,res){
+router.post("/changePwd",function(req,res) {
     var inputData = req.body;
-    adminModule.changeTheStudentPwd(function(err,results){
-router.post("/mentorUpdate",function(req,res){
-    var inputData = req.body;
-    adminModule.updateMentor(function(err,results){
-       res.json(results);
-    },inputData);
+    
+         req.checkBody('stuId',"stuId is invalid").notEmpty().isNumeric();  //Validate studId
+          req.checkBody('oldPwd',"old password is invalid").notEmpty();  //Validate oldPwd
+         req.checkBody('newPwd',"new password is invalid").notEmpty();  //Validate newPed
+         req.checkBody('conPwd',"conform password is invalid").notEmpty();  //Validate conPwd
+
+         var error = req.validationErrors();
+         if(!error){
+
+            adminModule.changeTheStudentPwd(function(err,results){
+                res.json(results);
+            },inputData);
+         }
+            else{
+
+                console.log("fail to update password");
+
+            }
+
+    
 });
 
-    });
-});
-
->>>>>>> e7f9550d6cf7c1637c200f405084dbaf625bb370
 
 module.exports = router;
