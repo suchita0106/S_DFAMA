@@ -18,6 +18,26 @@ router.get("/forumInitB",function(req,res){
         res.json(results);
     });
 });
+router.get("/forumInitC",function(req,res){
+    forumModule.readAnsQuestionsAnswers(function(err,results){
+        res.json(results);
+    });
+});
+
+router.post("/firstAnswer",function(req,res){
+    var inputData = req.body;
+    forumModule.firstAnswer(function(err,results){
+        res.json(results);
+    }, inputData);
+});
+
+router.post("/furtherAnswers",function(req,res){
+    var inputData = req.body;
+    forumModule.furtherAnswer(function(err,results){
+        res.json(results);
+    }, inputData);
+});
+
 router.post("/getAnswers",function(req,res){
     var inputData = req.body;
     forumModule.getAnswers(function(err,results){
