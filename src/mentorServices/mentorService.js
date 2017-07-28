@@ -93,6 +93,15 @@ router.post("/team", function (req, res) {
    
 });
 
+router.post("/updateAgenda",function(req,res)
+{   
+    var inputData = req.body;
+    mentor.updateAgenda(function(err,results){
+        res.json(results);
+    }, inputData);
+});
+
+
 router.get("/calcTeamPerformance",function(req,res)
 {
     mentor.calculateTheTeamPerformance(function(err,results){
