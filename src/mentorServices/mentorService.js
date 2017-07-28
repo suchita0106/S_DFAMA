@@ -37,7 +37,7 @@ router.post("/agenda", function (req, res) {
     var inputData = req.body;
     req.checkBody('mentorId',"mentor id required").notEmpty().isNumeric(); //Validate subjectName
     req.checkBody('agendaText',"agenda text is empty").notEmpty(); //Validate agenda Text
-    req.checkBody('agendaDate',"agendaDate is not valid").notEmpty().isDate(); //Validate agenda Text
+    //req.checkBody('agendaDate',"agendaDate is not valid").notEmpty().isDate(); //Validate agenda Text
     var errors = req.validationErrors();
 
      if(!errors){
