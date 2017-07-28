@@ -100,6 +100,31 @@ router.get("/calcTeamPerformance",function(req,res)
     });
 });
 
+router.get("/calcMentorPerformance",function(req,res)
+{
+    mentor.calculateTheMentorPerformance(function(err,results){
+        res.json(results);
+    });
+});
+
+router.get("/getTotalAnsCount",function(req,res){
+    mentor.getTheAnsCountMentorWise(function(err,results){
+        res.json(results);
+    });
+});
+
+router.get("/calcClsPerformance",function(req,res){
+    mentor.calculateClassPerformance(function(err,results){
+       // res.json(results);
+       if(results){
+             mentor.calculateSubClassPerformance(function(err,results){
+             res.json(results);
+             });
+       }
+
+    });
+});
+
 
 
 module.exports = router;

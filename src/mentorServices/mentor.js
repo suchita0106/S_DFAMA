@@ -104,8 +104,7 @@ module.exports =
         },
 
 
-    "calculateTheTeamPerformance" : function(callback){
-        var connection = mysql.createConnection(config);
+    "calculateTheTeamPerformance" : function(callback){        var connection = mysql.createConnection(config);
             connection.connect();
 
             var sql = "select teamId,count(cpp_lab_status) as CLS, count(cpp_mcq_status) as CMS , count(alds_lab_status) as ALS, count(alds_mcq_status) as AMS , count(osc_lab_status) as OLS , count(osc_mcq_status) as OMS , count(j2se_lab_status) as CJLS , count(j2se_mcq_status) as CJMS, count(awp_lab_status) as AWLS , count(awp_mcq_status) as AWMS, count(j2ee_lab_status) as AJLS, count(j2ee_mcq_status) as AJMS, count(dbt_lab_status) as DBLS, count(dbt_mcq_status) as DBMS, count(se_lab_status) as SLS, count(se_mcq_status) as SMS , count(dotnet_lab_status) as DNLS , count(dotnet_mcq_status) as DNMS from student_marks_status where cpp_lab_status = 'PASS' and alds_lab_status = 'PASS' and cpp_mcq_status = 'PASS' and alds_mcq_status = 'PASS' and osc_lab_status = 'PASS' and osc_mcq_status='PASS' and j2se_lab_status='PASS' and j2se_mcq_status = 'PASS' and dbt_lab_status = 'PASS' and dbt_mcq_status='PASS' and se_lab_status='PASS' and se_mcq_status='PASS' and dotnet_lab_status='PASS' and dotnet_mcq_status='PASS' group by teamId";
@@ -113,6 +112,54 @@ module.exports =
             connection.query(sql, function(err, results) {
             console.log(results);
 
+            // TASK COMPLETED
+            callback(err, results)
+            connection.end();
+        });
+    },
+
+    "calculateTheMentorPerformance" : function(callback){
+        var connection = mysql.createConnection(config);
+            connection.connect();
+            var sql="select mentorId, count(mentorId) as RESCOUNT, sum(studentInteraction) as INTERACTION , sum(teachingPace) as PACE, sum(responseTime) as RESPONSE , sum(noOfSessions) as SESSIONS , sum(communication) as COMM , sum(overallExp) as EXP from student_feedback group by mentorId";
+            connection.query(sql, function(err, results) {
+            console.log(results);
+            // TASK COMPLETED
+            callback(err, results)
+            connection.end();
+        });
+    },
+
+    // "getTheAnsCountMentorWise" : function(callback){
+    //          var connection = mysql.createConnection(config);
+    //         connection.connect();
+    //         var sql="select mentorId , count(questionId) as COUNT from answers group by mentorId";
+    //         connection.query(sql, function(err, results) {
+    //         console.log(results);
+    //         // TASK COMPLETED
+    //         callback(err, results)
+    //         connection.end();
+    //     });
+    // },
+
+    "calculateClassPerformance": function(callback){
+             var connection = mysql.createConnection(config);
+            connection.connect();
+            var sql="call procClassPerformance()";
+            connection.query(sql, function(err, results) {
+            console.log(results);
+            // TASK COMPLETED
+            callback(err, results)
+            connection.end();
+        });
+    },
+
+    "calculateSubClassPerformance":function(callback){
+         var connection = mysql.createConnection(config);
+            connection.connect();
+            var sql="select * from tempp";
+            connection.query(sql, function(err, results) {
+            console.log(results);
             // TASK COMPLETED
             callback(err, results)
             connection.end();

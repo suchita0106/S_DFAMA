@@ -1,10 +1,10 @@
 var mysql = require("mysql");
 
 var config = {
-     "host": "127.0.0.1",
-     "user": "dev",
-    "password": "dev",
-    "database": "project"
+     "host": "localhost",
+     "user": "suchi",
+    "password": "suchi",
+    "database": "suchi"
 }
 
 module.exports = {
