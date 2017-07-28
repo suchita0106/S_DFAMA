@@ -1,10 +1,10 @@
 var mysql = require("mysql");
 
 var config = {
-    "host": "localhost",
-    "user": "suchi",
-    "password": "suchi",
-    "database": "suchi"
+    "host": "127.0.0.1",
+     "user": "dev",
+    "password": "dev",
+    "database": "project"
 };
 
 
@@ -15,7 +15,7 @@ module.exports =
             var connection = mysql.createConnection(config);
             connection.connect();
 
-            var sql = "SELECT * FROM student where studerUsername=? && studentPassword=?";
+            var sql = "SELECT * FROM student where studentUsername=? && studentPassword=?";
             var param = [inputData.UserId, inputData.UserPwd];
 
             connection.query(sql, param, function (err, results) {

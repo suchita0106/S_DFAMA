@@ -14,7 +14,7 @@ module.exports = {
         connection.connect();
 
         var sql = "insert into questions(content, tag, studentId, answerStatus, postedDate) value(?, ?, ?, false, now())";
-        var param = [inputData.question,inputData.tag,inputData.studentid];
+        var param = [inputData.content,inputData.tag,inputData.studentid];
 
         connection.query(sql,param,function(err,results){
             if(!err){
