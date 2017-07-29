@@ -1,19 +1,11 @@
 var mysql = require("mysql");
 
 var config = {
-<<<<<<< HEAD
-    "host": "localhost",
-    "user": "dev",
-    "password": "dev",
-    "database": "project"
-};
-=======
      "host": "127.0.0.1",
      "user": "dev",
     "password": "dev",
     "database": "project"
 }
->>>>>>> 2c045d9af8396477591db258c38f8439d762bf8f
 
 module.exports = {
     //Read marks from database
