@@ -1,4 +1,13 @@
 var mysql = require("mysql");
+var bodyParser = require('body-parser');
+var multer = require('multer');
+var xlsxtojson = require("xlsx-to-json-lc");
+var fs = require("fs");
+var express = require('express');
+var app = express();
+
+
+app.use(bodyParser.json());
 
 var config = {
     "host": "127.0.0.1",
@@ -163,6 +172,46 @@ var sql = "select studentdetails.studentId , studentdetails.name ,  oopcpp_Lab a
                  connection.end();
              });
 
-    }
+    },
+
+     "studentUpdate":function(callback, inputData){
+        var connection=mysql.createConnection(config);
+        connection.connect();
+        var sql=`INSERT INTO student_marks(studentId ,
+oopcpp_Lab ,
+oopcpp_MCQ ,
+oopcpp_Total ,
+alds_Lab ,
+alds_MCQ ,
+alds_Total ,
+osc_Lab ,
+osc_MCQ ,
+osc_Total ,
+j2se_Lab ,
+j2se_MCQ ,
+j2se_Total ,
+awp_Lab ,
+awp_MCQ ,
+awp_Total ,
+j2ee_Lab ,
+j2ee_MCQ ,
+j2ee_Total ,
+dbt_Lab ,
+dbt_MCQ ,
+dbt_Total ,
+se_ppt ,
+se_MCQ ,
+se_Total,net_Lab,net_MCQ,net_Total) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+
+        var para=[inputData.studentId,inputData.cppLab,inputData.cppMcq,inputData.cppTotal,inputData.dsLab,inputData.dsMcq,inputData.dsTotal,inputData.osLab,inputData.osMcq,inputData.osTotal,inputData.coreLab,inputData.coreMcq,inputData.coreTotal,inputData.awpLab,inputData.awpMcq,inputData.awpTotal,inputData.dbtLab,inputData.dbtMcq,inputData.dbtTotal,inputData.advLab,inputData.advMcq,inputData.advTotal,inputData.seLab,inputData.seMcq,inputData.seTotal,inputData.netLab,inputData.netMcq,inputData.netTotal];                                                    
+        connection.query(sql,para,function(err,data){
+            if(!err){
+            console.log(data);
+            }
+            callback(err,data);
+            connection.end();
+        });
+        
+}
 
 };

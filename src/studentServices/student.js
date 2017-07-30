@@ -2,11 +2,7 @@ var mysql = require("mysql");
 
 var config = {
     "host": "127.0.0.1",
-<<<<<<< HEAD
-     "user": "dev",
-=======
     "user": "dev",
->>>>>>> bab81f76e67cdc204960bba4fec1d1a965a62add
     "password": "dev",
     "database": "project"
 };

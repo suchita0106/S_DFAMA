@@ -68,5 +68,22 @@ router.post("/changePwd",function(req,res) {
     
 });
 
+router.post("/studentUpdate",function(req,res){
+    var inputData = req.body;
+    //'subjectName'
+    
+    if(inputData!=undefined){
+
+    
+        adminModule.studentUpdate(function(err,results){
+       res.json(results);
+    },inputData);
+
+    }
+    else{
+        res.json(emptymessage);
+    }
+    
+});
 
 module.exports = router;
