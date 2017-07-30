@@ -38,17 +38,23 @@ router.post("/furtherAnswers",function(req,res){
     }, inputData);
 });
 
-router.post("/getAnswers",function(req,res){
+router.post("/searchTagA",function(req,res){
     var inputData = req.body;
-    forumModule.getAnswers(function(err,results){
+    forumModule.searchUnAnsQuestions(function(err,results){
         res.json(results);
     }, inputData);
 });
-router.post("/getComments",function(req,res){
+router.post("/searchTagB",function(req,res){
     var inputData = req.body;
-    forumModule.getComments(function(err,results){
+    forumModule.searchAnsQuestions(function(err,results){
         res.json(results);
     },inputData);
+});
+router.post("/searchTagC",function(req,res){
+    var inputData = req.body;
+    forumModule.searchAnsQuestionsAnswers(function(err,results){
+        res.json(results);
+    }, inputData);
 });
 
 
